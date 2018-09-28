@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Roulette
 {
+    enum Colors { Black, Red, Green};
+
     class Program
     {
         static void Main(string[] args)
