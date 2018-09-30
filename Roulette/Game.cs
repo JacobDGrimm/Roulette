@@ -79,6 +79,7 @@ namespace Roulette
                 Console.WriteLine("Everyone who bet on \"3rd 12\" wins.");
         }
 
+        // i should change this to use the newly created arrays of the columns
         public void ColumumsBet()
         {
             int n = tab.NumResult();
