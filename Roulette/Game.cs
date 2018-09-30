@@ -34,6 +34,7 @@ namespace Roulette
                 ColumumsBet();
                 StreetBet();
                 DoubleSixBet();
+                SplitBet();
             }
         }
 
@@ -155,6 +156,57 @@ namespace Roulette
                 if (item == n)
                     Console.WriteLine("Everyone who bet the last double row wins.");
             }
+        }
+
+        public void SplitBet()
+        {
+            int n = tab.NumResult();
+            int[] topC = new int[] { 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36 };
+            int[] midC = new int[] { 2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35 };
+            int[] botC = new int[] { 1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34 };
+            Console.Write("Everyone on the ");
+            for (int i = 0; i < topC.Length; i++)
+            {
+                if (n == topC[i] && i != 0 && i != 11)
+                {
+                    Console.Write($"{topC[i - 1]}/{topC[i]}, {topC[i + 1]}/{topC[i]}, ");
+                }
+                if (n == topC[i] && i == 0)
+                {
+                    Console.Write($"{topC[i + 1]}/{topC[i]}, ");
+                }
+                if (n == topC[i] && i == 11)
+                {
+                    Console.Write($"{topC[i - 1]}/{topC[i]}, ");
+                }
+                if ( n == topC[i] )
+                {
+                    Console.Write($"{topC[i]}/{midC[i]} ");
+                }
+            }
+            for (int i = 0; i < midC.Length; i++)
+            {
+                if (n == midC[i] && i != 0 && i != 11)
+                    Console.Write($"{midC[i - 1]}/{midC[i]}, {midC[i + 1]}/{midC[i]}, ");
+                if (n == midC[i] && i == 0)
+                    Console.Write($"{midC[i + 1]}/{midC[i]}, ");
+                if (n == midC[i] && i == 11)
+                    Console.Write($"{midC[i - 1]}/{midC[i]}, ");
+                if (n == midC[i])
+                    Console.Write($"{midC[i]}/{topC[i]}, {midC[i]}/{botC[i]} ");
+            }
+            for (int i = 0; i < botC.Length; i++)
+            {
+                if (n == botC[i] && i != 0 && i != 11)
+                    Console.Write($"{botC[i - 1]}/{botC[i]}, {botC[i + 1]}/{botC[i]}, ");
+                if (n == botC[i] && i == 0)
+                    Console.Write($"{botC[i + 1]}/{botC[i]}, ");
+                if (n == botC[i] && i == 11)
+                    Console.Write($"{botC[i - 1]}/{botC[i]}, ");
+                if (n == botC[i])
+                    Console.Write($"{botC[i]}/{midC[i]} ");
+            }
+            Console.WriteLine("splits wins.");
         }
     }
 }
