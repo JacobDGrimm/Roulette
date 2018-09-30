@@ -109,7 +109,7 @@ namespace Roulette
                 Console.WriteLine("Everyone who bet the tenth street wins.");
             if ( n > 30 && n < 34 )
                 Console.WriteLine("Everyone who bet the eleventh street wins.");
-            else
+            if ( n > 33 )
                 Console.WriteLine("Everyone who bet the last street wins.");
 
         }
