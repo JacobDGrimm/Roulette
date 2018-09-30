@@ -32,6 +32,7 @@ namespace Roulette
                 HighLowBet();
                 DozensBet();
                 ColumumsBet();
+                StreetBet();
             }
         }
 
@@ -80,6 +81,37 @@ namespace Roulette
                 Console.WriteLine("Everyone who bet the middle column wins.");
             else
                 Console.WriteLine("Everyone who bet the bottom column wins.");
+        }
+
+        public void StreetBet()
+        {
+            int n = tab.NumResult();
+
+            if ( n < 4 )
+                Console.WriteLine("Everyone who bet the first street wins.");
+            if ( n > 3 && n < 7 )
+                Console.WriteLine("Everyone who bet the second street wins.");
+            if ( n > 6 && n < 10 )
+                Console.WriteLine("Everyone who bet the third street wins.");
+            if ( n > 9 && n < 13 )
+                Console.WriteLine("Everyone who bet the fourth street wins.");
+            if ( n > 12 && n < 16 )
+                Console.WriteLine("Everyone who bet the fifth street wins.");
+            if ( n > 15 && n < 19 )
+                Console.WriteLine("Everyone who bet the sixth street wins.");
+            if ( n > 18 && n < 22 )
+                Console.WriteLine("Everyone who bet the seventh street wins.");
+            if ( n > 21 && n < 25 )
+                Console.WriteLine("Everyone who bet the eighth street wins.");
+            if ( n > 24 && n < 28 )
+                Console.WriteLine("Everyone who bet the ninth street wins.");
+            if ( n > 27 && n < 31)
+                Console.WriteLine("Everyone who bet the tenth street wins.");
+            if ( n > 30 && n < 34 )
+                Console.WriteLine("Everyone who bet the eleventh street wins.");
+            else
+                Console.WriteLine("Everyone who bet the last street wins.");
+
         }
     }
 }
