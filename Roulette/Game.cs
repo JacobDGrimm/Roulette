@@ -31,6 +31,7 @@ namespace Roulette
                 RedBlackBet();
                 HighLowBet();
                 DozensBet();
+                ColumumsBet();
             }
         }
 
@@ -68,6 +69,17 @@ namespace Roulette
                 Console.WriteLine("Everyone who bet on \"2nd 12\" wins.");
             if ( tab.NumResult() > 24 )
                 Console.WriteLine("Everyone who bet on \"3rd 12\" wins.");
+        }
+
+        public void ColumumsBet()
+        {
+            int n = tab.NumResult();
+            if ( n == 3 || n == 6 || n == 9 || n == 12 || n == 15 || n == 18 || n == 21 || n == 24 || n == 27 || n == 30 || n == 33 || n == 36 )
+                Console.WriteLine("Everyone who bet the top column wins.");
+            if ( n == 2 || n == 5 || n == 8 || n == 11 || n == 14 || n == 17 || n == 20 || n == 23 || n == 26 || n == 29 || n == 32 || n == 35 )
+                Console.WriteLine("Everyone who bet the middle column wins.");
+            else
+                Console.WriteLine("Everyone who bet the bottom column wins.");
         }
     }
 }
