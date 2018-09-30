@@ -147,11 +147,13 @@ namespace Roulette
             }
             foreach (var item in fiv)
             {
-                Console.WriteLine("Everyone who bet the fifth double row wins.");
+                if (item == n)
+                    Console.WriteLine("Everyone who bet the fifth double row wins.");
             }
             foreach (var item in six)
             {
-                Console.WriteLine("Everyone who bet the last double row wins.");
+                if (item == n)
+                    Console.WriteLine("Everyone who bet the last double row wins.");
             }
         }
     }
