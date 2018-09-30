@@ -26,13 +26,27 @@ namespace Roulette
                                                 Colors.Black, Colors.Red, Colors.Black, Colors.Black, Colors.Red,
                                                 Colors.Black, Colors.Red, Colors.Black, Colors.Red, Colors.Black,
                                                 Colors.Red, Colors.Green };
+
+        // an array to hold the bet options
+        string[] bets = new string[] { "Number", "Even/Odd", "Red/Black", "Low/High", "Dozens", "Columns", "Street", "6 Numbers", "Split", "Corner" };
         
         // the ball spinning on the wheel
-        public void Spin()
+        public int Spin()
         {
             int b = rnd.Next(0, 39);
-            int ballPosition = wheelNums[b];
-            Colors ballColor = wheelColors[b];
+            return b;
+        }
+
+        public int NumResult(int b)
+        {
+            int num = wheelNums[b];
+            return num;
+        }
+
+        public Colors ColorResult(int b)
+        {
+            Colors color = wheelColors[b];
+            return color;
         }
     }
 }
