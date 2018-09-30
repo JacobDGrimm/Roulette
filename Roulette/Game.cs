@@ -10,6 +10,10 @@ namespace Roulette
     {
         Table tab = new Table();
 
+        
+        int[] topC = new int[] { 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36 };
+        int[] midC = new int[] { 2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35 };
+        int[] botC = new int[] { 1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34 };
 
         public void SpinTheBallGame()
         {
@@ -35,6 +39,7 @@ namespace Roulette
                 StreetBet();
                 DoubleSixBet();
                 SplitBet();
+                CornerBet();
             }
         }
 
@@ -161,9 +166,6 @@ namespace Roulette
         public void SplitBet()
         {
             int n = tab.NumResult();
-            int[] topC = new int[] { 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36 };
-            int[] midC = new int[] { 2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35 };
-            int[] botC = new int[] { 1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34 };
             Console.Write("Everyone on the ");
             for (int i = 0; i < topC.Length; i++)
             {
@@ -207,6 +209,40 @@ namespace Roulette
                     Console.Write($"{botC[i]}/{midC[i]} ");
             }
             Console.WriteLine("splits wins.");
+        }
+
+        public void CornerBet()
+        {
+            int n = tab.NumResult();
+            Console.Write("Everyone on the ");
+            for (int i = 0; i < topC.Length; i++)
+            {
+                if (n == topC[i] && i != 0 && i != 11)
+                    Console.Write($"{topC[i]}/{topC[i-1]}/{midC[i]}/{midC[i-1]}, {topC[i]}/{topC[i+1]}/{midC[i]}/{midC[i+1]} ");
+                if (n== topC[i] && i == 0)
+                    Console.Write($"{topC[i]}/{topC[i+1]}/{midC[i]}/{midC[i+1]} ");
+                if ( n == topC[i] && i == 11 )
+                    Console.Write($"{topC[i]}/{topC[i-1]}/{midC[i]}/{midC[i-1]} ");
+            }
+            for (int i = 0; i < midC.Length; i++)
+            {
+                if (n == midC[i] && i != 0 && i != 11)
+                    Console.Write($"{midC[i]}/{midC[i - 1]}/{topC[i]}/{topC[i - 1]}, {midC[i]}/{midC[i + 1]}/{topC[i]}/{topC[i + 1]}, {midC[i]}/{midC[i-1]}/{botC[i]}/{botC[i-1]}, {midC[i]}/{midC[i+1]}/{botC[i]}/{botC[i+1]} ");
+                if (n == midC[i] && i == 0)
+                    Console.Write($"{midC[i]}/{midC[i + 1]}/{topC[i]}/{topC[i + 1]}, {midC[i]}/{midC[i+1]}/{botC[i]}/{botC[i+1]} ");
+                if (n == midC[i] && i == 11)
+                    Console.Write($"{midC[i]}/{midC[i - 1]}/{topC[i]}/{topC[i - 1]}, {midC[i]}/{midC[i-1]}/{botC[i]}/{botC[i-1]} ");
+            }
+            for (int i = 0; i < botC.Length; i++)
+            {
+                if (n == botC[i] && i != 0 && i != 11)
+                    Console.Write($"{botC[i]}/{botC[i - 1]}/{midC[i]}/{midC[i - 1]}, {botC[i]}/{botC[i + 1]}/{midC[i]}/{midC[i + 1]} ");
+                if (n == botC[i] && i == 0)
+                    Console.Write($"{botC[i]}/{botC[i + 1]}/{midC[i]}/{midC[i + 1]} ");
+                if (n == botC[i] && i == 11)
+                    Console.Write($"{botC[i]}/{botC[i - 1]}/{midC[i]}/{midC[i - 1]} ");
+            }
+            Console.WriteLine("corners wins.");
         }
     }
 }
