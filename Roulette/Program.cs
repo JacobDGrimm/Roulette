@@ -18,6 +18,7 @@ namespace Roulette
             Game Game = new Game();
 
             Game.SpinTheBallGame();
+            Game.WinningBets();
         }
 
     }

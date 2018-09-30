@@ -26,7 +26,11 @@ namespace Roulette
             }
             else
             {
-
+                NumberBet();
+                EvenOddBet();
+                RedBlackBet();
+                HighLowBet();
+                DozensBet();
             }
         }
 
@@ -56,6 +60,14 @@ namespace Roulette
                 Console.WriteLine("Everyone who bet on \"19 to 36\" wins.");
         }
 
-
+        public void DozensBet()
+        {
+            if ( tab.NumResult() < 13 )
+                Console.WriteLine("Everyone who bet on \"1st 12\" wins.");
+            if ( tab.NumResult() > 12 && tab.NumResult() < 25 )
+                Console.WriteLine("Everyone who bet on \"2nd 12\" wins.");
+            if ( tab.NumResult() > 24 )
+                Console.WriteLine("Everyone who bet on \"3rd 12\" wins.");
+        }
     }
 }
