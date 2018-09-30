@@ -29,23 +29,25 @@ namespace Roulette
 
         // an array to hold the bet options
         string[] bets = new string[] { "Number", "Even/Odd", "Red/Black", "Low/High", "Dozens", "Columns", "Street", "6 Numbers", "Split", "Corner" };
-        
+
+        int bin;
+
         // the ball spinning on the wheel
-        public int Spin()
+        public void Spin()
         {
             int b = rnd.Next(0, 39);
-            return b;
+            bin = b;
         }
 
-        public int NumResult(int b)
+        public int NumResult()
         {
-            int num = wheelNums[b];
+            int num = wheelNums[bin];
             return num;
         }
 
-        public Colors ColorResult(int b)
+        public Colors ColorResult()
         {
-            Colors color = wheelColors[b];
+            Colors color = wheelColors[bin];
             return color;
         }
     }
