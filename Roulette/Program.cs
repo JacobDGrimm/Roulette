@@ -15,7 +15,9 @@ namespace Roulette
 
         static void Main(string[] args)
         {
-            
+            Table tab = new Table();
+
+            tab.Spin();
         }
     }
 }

@@ -8,6 +8,9 @@ namespace Roulette
 {
     class Table
     {
+        // a randomizer for the ball
+        Random rnd = new Random();
+        
         // this array is all the numbers on a roulette wheel in numerical order
         int[] wheelNums = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
                                           10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
@@ -23,6 +26,13 @@ namespace Roulette
                                                 Colors.Black, Colors.Red, Colors.Black, Colors.Black, Colors.Red,
                                                 Colors.Black, Colors.Red, Colors.Black, Colors.Red, Colors.Black,
                                                 Colors.Red, Colors.Green };
-
+        
+        // the ball spinning on the wheel
+        public void Spin()
+        {
+            int b = rnd.Next(0, 39);
+            int ballPosition = wheelNums[b];
+            Colors ballColor = wheelColors[b];
+        }
     }
 }
